@@ -30,11 +30,10 @@ def main():
 
 
 def create_self_sign_cert():
-    # buggy code
-    print("Creating self-sign certificate")
+    print("Creating self-sign certificate...")
 
     # step 1, generate RSA
-    p = 23629  # choose 2 big prime numbers
+    p = 23628  # choose 2 big prime numbers
     q = 35671
     n = p * q
     phi = (p-1) * (q-1)
@@ -51,7 +50,7 @@ def extended_euclid(a, b):
     u = 0
     v = 1
 
-    while b > 0:
+    while b >= 0:
         q = a // b  # integer division!!
         b1 = b
         b = a - q * b
