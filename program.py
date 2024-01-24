@@ -4,6 +4,7 @@ import os
 def main():
     use_https = os.getenv("WORKSHOP_HTTPS")
     dev_env = os.getenv("WORKSHOP_ENV")
+    use_cors = os.getenv("WORKSHOP_CORS")
 
     if use_https is None or use_https == "false":
         print("Running Program insecurely.")
@@ -24,6 +25,9 @@ def main():
         elif dev_env == "Development":
             print("Running Dev Server...")
             create_self_sign_cert()
+            if use_cors is not None or use_cors == "true":
+                print("CORS prevented access to external Resource on `localhost`")
+                exit(51)
     else:
         print("invalid value for env var WORKSHOP_HTTPS")
         exit(12)
