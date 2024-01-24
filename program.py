@@ -2,6 +2,15 @@ import os
 
 
 def main():
+    with open('.env', 'r') as f:
+        contents = f.readlines()
+        for line in contents:
+            sep = line.find("=")
+            if line[0:sep] == "WORKSHOP_HTTPS":
+                use_https = line[sep+1:]
+            elif line[0:sep] == "WORKSHOP_ENV":
+                dev_env = line[sep+1:]
+
     use_https = os.getenv("WORKSHOP_HTTPS")
     dev_env = os.getenv("WORKSHOP_ENV")
 
