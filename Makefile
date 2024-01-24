@@ -1,2 +1,2 @@
 run:
-	WORKSHOP_HTTPS=true WORKSHOP_ENV=Development python3 ./program.py
+	WORKSHOP_HTTPS=false WORKSHOP_ENV=Development python3 ./program.py
